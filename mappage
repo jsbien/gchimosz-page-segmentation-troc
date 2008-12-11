@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# released under GPL with no warranty
+
+# usage 
+
+CONVERT=convert
+OCROSCRIPT=~/ocropus/bin/ocroscript
+SORT=sort
+SED=sed
+DJVUSED=djvused
+
+
+$CONVERT "$1" "$1.png"
+
+$OCROSCRIPT djvu-boxes.lua "$1.png" "$1.box"
+
+# sort lines
+$SORT -o "$1.djvused" -n -k 2,2 -k 1,1 "$1.box" 
+
+# enumerate
+$SED -i -e "s|^\(.*\)$|(maparea \"#+0\" \"line\" (rect \1) (none))|" "$1.djvused"
+
+# preserve existing annotations
+# TODO $DJVUSED -e "select 1; print-ant" "$1" >> "$1.djvused"
+
+# set annotations
+$DJVUSED -s -e "select 1; set-ant $1.djvused" "$1"
+
+# clean
+#rm "$1.png" "$1.box" "$1.djvused"
