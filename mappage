@@ -7,7 +7,7 @@
 CONVERT=convert
 OCROSCRIPT=~/ocropus/bin/ocroscript
 SORT=sort
-SED=sed
+FILTER="python filter-line.py"
 DJVUSED=djvused
 
 
@@ -19,7 +19,7 @@ $OCROSCRIPT djvu-boxes.lua "$1.png" "$1.box"
 $SORT -o "$1.djvused" -n -k 2,2 -k 1,1 "$1.box" 
 
 # enumerate
-$SED -i -e "s|^\(.*\)$|(maparea \"#+0\" \"line\" (rect \1) (none))|" "$1.djvused"
+$FILTER "$1.djvused"
 
 # preserve existing annotations
 # TODO $DJVUSED -e "select 1; print-ant" "$1" >> "$1.djvused"
