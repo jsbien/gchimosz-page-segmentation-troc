@@ -16,7 +16,7 @@ $CONVERT "$1" "$1.png"
 $OCROSCRIPT djvu-boxes.lua "$1.png" "$1.box"
 
 # sort lines
-$SORT -o "$1.djvused" -n -k 2,2 -k 1,1 "$1.box" 
+$SORT -o "$1.djvused" -r -n -k 2,2 -k 1,1 "$1.box" 
 
 # enumerate
 $FILTER "$1.djvused"
@@ -28,4 +28,4 @@ $FILTER "$1.djvused"
 $DJVUSED -s -e "select 1; set-ant $1.djvused" "$1"
 
 # clean
-#rm "$1.png" "$1.box" "$1.djvused"
+rm "$1.png" "$1.box" "$1.djvused"
