@@ -1,4 +1,5 @@
 import sys
+import math
 
 def abs(x):
 	if x >= 0:
@@ -6,50 +7,60 @@ def abs(x):
 	else:
 		return -1 * x
 
-def left_right(line):
-	left, width = line.split()[0], line.split()[2]
-	return int(left), int(left) + int(width)
+def left_right_height(line):
+	left, width, height = line.split()[0], line.split()[2], line.split()[3]
+	return int(left), int(left) + int(width), int(height)
 
 f = open(sys.argv[1], "r")
 boxes = f.read()
 f.close()
 
-begin = 0
-end = 0
-begin_count = 0
-end_count = 0
+left_avg = 0
+right_avg = 0
+height_avg = 0
+count = 0
 
 # perform analysis
 for line in boxes.splitlines():
-	left, right = left_right(line)
+	left, right, height = left_right_height(line)
 
-	begin += int(left)
-	end += right
-	begin_count += 1
-	end_count += 1
+	left_avg += left
+	right_avg += right
+	height_avg += height
 
-begin /= begin_count
-end /= end_count
+	count += 1
 
-begin_dev = 0
-end_dev = 0
+left_avg /= count
+right_avg /= count
+height_avg /= count
+
+left_dev = 0
+right_dev = 0
+height_dev = 0
 
 for line in boxes.splitlines():
-	left, right = left_right(line)
+	left, right, height = left_right_height(line)
 
-	begin_dev += (left - begin) ** 2
-	end_dev += (right - end) ** 2
+	left_dev += (left - left_avg) ** 2
+	right_dev += (right - right_avg) ** 2
+	height_dev += (height - height_avg) ** 2
 
-begin_dev /= begin_count
-end_dev /= end_count
+left_dev = int(math.sqrt(left_dev / count))
+right_dev = int(math.sqrt(right_dev / count))
+height_dev = int(math.sqrt(height_dev / count))
+
+#debug
+print "left " + str(left_avg) + "; " + str(left_dev)
+print "right " + str(right_avg) + "; " + str(right_dev)
+print "height " + str(height_avg) + "; " + str(height_dev)
 
 # save lines
 i = 1
 f = open(sys.argv[1], "w")
 for line in boxes.splitlines():
-	left, right = left_right(line)
+	left, right, height = left_right_height(line)
 
-	if abs(left - begin) < begin_dev and abs(right - end) < end_dev:
+	if abs(left - left_avg) <= left_dev and abs(right - right_avg) <= right_dev and abs(height - height_avg) <= height_dev:
 		f.write("(maparea \"#+0\" \"line " + str(i) + "\" (rect " + line + ") (none))\n")
 		i += 1
 
