@@ -6,7 +6,8 @@
 #
 
 CONVERT=convert
-SEGMENTPAGE="~/ocropus/bin/ocroscript segment-page.lua"
+CPALDJVU=cpaldjvu
+SEGMENTPAGE="/home/inf/g/gc235944/ocropus/bin/ocroscript segment-page.lua"
 SORT=sort
 FILTER="python filter-line.py"
 DJVUSED=djvused
@@ -75,7 +76,8 @@ fi
 # TODO $DJVUSED -e "select 1; print-ant" "$INPUT" >> "$INPUT.djvused"
 
 # convert "cleaned" (and colorized if set) png back to djvu
-$CONVERT "$OUTPUT.png" "$OUTPUT"
+$CONVERT "$OUTPUT.png" "$OUTPUT.ppm"
+$CPALDJVU "$OUTPUT.ppm" "$OUTPUT"
 
 if [ "$NUMERATE" ]; then
 	# sort lines
@@ -97,5 +99,5 @@ if [ "$INPUT" != "$OUTPUT" ]; then
 fi
 
 if [ -z "$KEEPTMP" ]; then
-	rm "$OUTPUT.png" "$OUTPUT.box" "$OUTPUT.djvused" 2> /dev/null
+	rm "$OUTPUT.png" "$OUTPUT.ppm" "$OUTPUT.box" "$OUTPUT.djvused" 2> /dev/null
 fi
