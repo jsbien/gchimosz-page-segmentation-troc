@@ -69,7 +69,7 @@ for line in boxes.splitlines():
 
 	#if abs(left - left_avg) <= left_dev and abs(right - right_avg) <= right_dev and abs(height - height_avg) <= height_dev:
 	if abs(right - left - width_avg) <= width_dev and abs(height - height_avg) <= height_dev:
-		f.write("(maparea \"#+0\" \"line " + str(i) + "\" (rect " + line + ") (border #0000FF))\n")
+		f.write(str(i) + " " + line + "\n")
 		i += 1
 
 f.close()

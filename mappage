@@ -1,31 +1,101 @@
 #!/bin/bash
 
-# released under GPL with no warranty
-
-# usage 
+#
+# DjVu line numerator (c) Grzegorz Chimosz 2008-2009
+# released under GNU GPL with ABSOLUTELY NO WARRANTY
+#
 
 CONVERT=convert
-OCROSCRIPT=~/ocropus/bin/ocroscript
+SEGMENTPAGE="~/ocropus/bin/ocroscript segment-page.lua"
 SORT=sort
 FILTER="python filter-line.py"
 DJVUSED=djvused
 
+print_usage_and_exit() {
+	echo "usage"
+	echo -e "\t$0 <input.djvu> <output.djvu> [-k] [-c] [-n] [-f \"filteropts\"]"
+	echo
+	echo -e "\toptions"
+	echo -e "\t\t-k\tkeep temporary files"
+	echo -e "\t\t-c\tcolorize output"
+	echo -e "\t\t-n\tnumerate lines"
+	echo -e "\t\t-f \"filteropts\""
+	echo -e "\t\t\tpass \"filteropts\" to filter"
 
-$CONVERT "$1" "$1.png"
+	exit $1
+}
 
-$OCROSCRIPT djvu-boxes.lua "$1.png" "$1.box"
+#
+# main script
+#
 
-# sort lines
-$SORT -o "$1.djvused" -r -n -k 2,2 -k 1,1 "$1.box" 
+echo "DjVu line numerator (c) Grzegorz Chimosz 2008-2009"
+echo "released under GNU GPL with ABSOLUTELY NO WARRANTY"
 
-# enumerate
-$FILTER "$1.djvused"
+# if too few parameters 
+if [ $# -lt 2 ]; then
+	print_usage_and_exit 1
+fi
+
+INPUT="$1"
+OUTPUT="$2"
+shift 2
+
+# parse and set options
+KEEPTMP=""
+COLORIZE=""
+NUMERATE=""
+FILTEROPTS=""
+
+while getopts ":kcnhf:" op ; do
+	case $op in
+		"k" ) KEEPTMP="1";;
+		"c" ) COLORIZE="1";;
+		"n" ) NUMERATE="1";;
+		"h" ) print_usage_and_exit 0;;
+		"f" ) FILTEROPTS="$OPTARG";;
+		":" ) echo "\nERROR: give an argument to the \"-$OPTARG\" option\n"
+					print_usage_and_exit 1;;
+		"?" ) echo -e "\nERROR: unrecognized option \"-$OPTARG\"\n"
+					print_usage_and_exit 1;;
+		esac
+done
+
+# convert djvu file to png
+$CONVERT "$INPUT" "$INPUT.png"
+
+# exec ocroscript and process page
+if [ "$COLORIZE" ]; then
+	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box" -c
+else
+	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box"
+fi
 
 # preserve existing annotations
-# TODO $DJVUSED -e "select 1; print-ant" "$1" >> "$1.djvused"
+# TODO $DJVUSED -e "select 1; print-ant" "$INPUT" >> "$INPUT.djvused"
 
-# set annotations
-$DJVUSED -s -e "select 1; set-ant $1.djvused" "$1"
+# convert "cleaned" (and colorized if set) png back to djvu
+$CONVERT "$OUTPUT.png" "$OUTPUT"
+
+if [ "$NUMERATE" ]; then
+	# sort lines
+	$SORT -o "$OUTPUT.djvused" -r -n -k 2,2 -k 1,1 "$OUTPUT.box" 
+
+	# filter lines and put numbers
+	$FILTER "$OUTPUT.djvused" "$FILTEROPTS"
+
+	# convert filtered box to djvused script
+	sed -i -e "s/^\([0-9]*\) \(.*\)$/(maparea \"#+0\" \"line \1\" (rect \2) (border #0000FF))/" "$OUTPUT.djvused"
+
+	# set annotations
+	$DJVUSED -s -e "select 1; set-ant $OUTPUT.djvused" "$OUTPUT"
+fi
 
 # clean
-rm "$1.png" "$1.box" "$1.djvused"
+if [ "$INPUT" != "$OUTPUT" ]; then
+	rm "$INPUT.png" 2> /dev/null
+fi
+
+if [ -z "$KEEPTMP" ]; then
+	rm "$OUTPUT.png" "$OUTPUT.box" "$OUTPUT.djvused" 2> /dev/null
+fi

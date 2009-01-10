@@ -1,3 +1,6 @@
+#
+# deprecated
+#
 # released under GPL with no warranty
 
 import_all(graphics)
