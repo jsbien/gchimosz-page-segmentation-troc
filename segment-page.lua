@@ -37,16 +37,13 @@ segmenter:segment(segmentation, binarized)
 regions = RegionExtractor()
 regions:setPageLines(segmentation)
 output = io.open(arg[3], 'w')
-height = segmentation:dim(1)
 for i = 1, regions:length() - 1 do
     local bbox = regions:bbox(i)
 
-    -- flip the y coordinate
-    bbox.y0 = height - bbox.y0 - 1
-    bbox.y1 = height - bbox.y1 - 1
-
     -- (x0, y0) is the lower left corner;
-    output:write(("%d %d %d %d\n"):format(bbox.x0, bbox.y0, (bbox.x1 - bbox.x0), (bbox.y0 - bbox.y1)))
+		-- (x1, y1) is the upper right corner;
+		-- (0, 0) is lowest left point of page, just as in DjVu
+    output:write(("%d %d %d %d\n"):format(bbox.x0, bbox.y0, (bbox.x1 - bbox.x0), (bbox.y1 - bbox.y0)))
 end
 
 -- colorize layout analysis result
