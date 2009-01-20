@@ -7,9 +7,9 @@
 
 CONVERT=convert
 CPALDJVU=cpaldjvu
-SEGMENTPAGE="/home/inf/g/gc235944/ocropus/bin/ocroscript segment-page.lua"
+SEGMENTPAGE="ocroscript /usr/share/mappage/segment-page.lua"
 SORT=sort
-FILTER="python filter-line.py"
+FILTER="python /usr/share/mappage/filter-line.py"
 DJVUSED=djvused
 
 print_usage_and_exit() {

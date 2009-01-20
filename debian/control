@@ -1,0 +1,13 @@
+Source: mappage
+Section: unknown
+Priority: extra
+Maintainer: Grzegorz Chimosz <G.Chimosz@students.mimuw.edu.pl>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: mappage
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ocropus (>= 0.3), python, imagemagick, djvulibre-bin
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
