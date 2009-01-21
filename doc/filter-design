@@ -1,0 +1,43 @@
+Author: Grzegorz Chimosz
+Title: How to write a filter for mappage
+License: GNU GPL
+
+1. Introduction
+---------------
+
+A mappage filter is a Python script (of course it hasn't be) which
+decides if box (line of text, image, noise) should be marked as line
+in result document.
+
+As first parameter it gets file name, it's both input and output file,
+input is destroyed then.
+
+It might get additional parameter in order to tune filter work (it's
+implemented in mappage but not used at the moment).
+
+Line order in input is order given by OCRopus.
+Line order in output is not important at all.
+
+
+2. Input
+--------
+
+Filter input is text file with lines describing each box.
+Line consists of coordinates of found box separated by one space.
+Line format is:
+
+<left> <bottom> <width> <height>
+
+Point (0, 0) is in the lower left corner, just as in DjVu.
+
+
+3. Output
+---------
+
+Filter should decide which boxes is line in fact and give them numbers.
+Output is very similar to input. The only difference is line number
+(found or guessed by filter, not line number in output file).
+Line format is:
+
+<line-number> <left> <bottom> <width> <height>
+
