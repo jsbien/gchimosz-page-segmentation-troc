@@ -8,6 +8,7 @@
 SCRIPTSDIR="/usr/share/mappage"
 CONVERT=convert
 CPALDJVU=cpaldjvu
+DDJVU=ddjvu
 SEGMENTPAGE="ocroscript $SCRIPTSDIR/segment-page.lua"
 SORT=sort
 FILTER="python $SCRIPTSDIR/filter-line.py"
@@ -31,7 +32,7 @@ print_usage_and_exit() {
 # main script
 #
 
-echo "DjVu line numerator (c) Grzegorz Chimosz 2008-2009"
+echo "DjVu line numerator v.0.1.1 (c) Grzegorz Chimosz 2008-2009"
 echo "released under GNU GPL with ABSOLUTELY NO WARRANTY"
 
 # if too few parameters 
@@ -64,31 +65,36 @@ while getopts ":kcnhf:" op ; do
 done
 
 # convert djvu file to png
-$CONVERT "$INPUT" "$INPUT.png"
+$DDJVU -format=tiff "$INPUT" "$INPUT.tiff" || { echo "ERROR: $DDJVU" ; exit 2; }
+$CONVERT "$INPUT.tiff" "$INPUT.png" || { echo "ERROR: $CONVERT <input>" ; exit 2; }
 
 # exec ocroscript and process page
 if [ "$COLORIZE" ]; then
-	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box" -c
+	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box" -c || { echo "ERROR: $SEGMENTPAGE" ; exit 2; }
 else
-	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box"
+	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box" || { echo "ERROR: $SEGMENTPAGE" ; exit 2; }
 fi
 
 # convert "cleaned" (and colorized if set) png back to djvu
-$CONVERT "$OUTPUT.png" "$OUTPUT.ppm"
-$CPALDJVU "$OUTPUT.ppm" "$OUTPUT"
+$CONVERT "$OUTPUT.png" "$OUTPUT.ppm" || { echo "ERROR: $CONVERT <output>" ; exit 2; }
+$CPALDJVU "$OUTPUT.ppm" "$OUTPUT" || { echo "ERROR: $CPALDJVU" ; exit 2; }
+
 
 if [ "$NUMERATE" ]; then
 	# filter lines and put numbers
-	$FILTER "$OUTPUT.box" "$FILTEROPTS"
+	$FILTER "$OUTPUT.box" "$FILTEROPTS" || { echo "ERROR: $FILTER" ; exit 2; }
 
 	# convert filtered box to djvused script
-	sed -e "s/^\([0-9]*\) \(.*\)$/(maparea \"#+0\" \"line \1\" (rect \2) (border #0000FF))/" "$OUTPUT.box" > "$OUTPUT.djvused"
+	sed -e "s/^\([0-9]*\) \(.*\)$/(maparea \"#+0\" \"line \1\" (rect \2) (border #0000FF))/" "$OUTPUT.box" > "$OUTPUT.djvused" || { echo "ERROR: sed" ; exit 2; }
 
 	# set annotations
-	$DJVUSED -s -e "select 1; set-ant $OUTPUT.djvused" "$OUTPUT"
+	$DJVUSED -s -e "select 1; set-ant $OUTPUT.djvused" "$OUTPUT" || { echo "ERROR: $DJVUSED" ; exit 2; }
 fi
 
 # clean
+
+# assume that input djvu is converted to png without problem
+rm "$INPUT.tiff" 2> /dev/null
 if [ "$INPUT" != "$OUTPUT" ]; then
 	rm "$INPUT.png" 2> /dev/null
 fi
