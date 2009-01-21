@@ -4,10 +4,12 @@ Priority: extra
 Maintainer: Grzegorz Chimosz <G.Chimosz@students.mimuw.edu.pl>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.7.3
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://fleksem.klf.uw.edu.pl/~jsbien/RTSK_08-09/ocropus/
 
 Package: mappage
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, ocropus (>= 0.3), python, imagemagick, djvulibre-bin
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: Set of scripts to find lines of text in DjVu files.
+ These scripts are intended to process DjVu single-page document with OCRopus and mark every block found by OCRopus with different colour (actually OCRopus is doing that), then filter all blocks, give them number and make maps (hyperlinks) in the result document.
+ This tool was made during University of Warsaw's "Text Representation in Computer Systems" course under professor Janusz S. Bień supervision.
+
