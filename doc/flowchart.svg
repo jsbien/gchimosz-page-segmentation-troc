@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by diasvg.py -->
+<svg width="42.765cm" height="82.630cm" viewBox="9.982 0.950 52.747 83.580"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="14.306,1.150 23.033,1.150 22.159,3.550 13.433,3.550 "/>
+<text x="16.766" y="2.492"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+input.djvu</text>
+<rect x="10.032" y="7.263" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="10.032" y="7.263" width="16.400" height="3.150" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="15.374" y="8.981"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+convert djvu to png</text>
+<rect x="10.032" y="20.539" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="10.032" y="20.539" width="16.400" height="3.150" fill="none" stroke="#00FF00" stroke-width="0.100" />
+<text x="17.138" y="22.257"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+deskew</text>
+<rect x="10.032" y="34.265" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="10.032" y="34.265" width="16.400" height="3.150" fill="none" stroke="#00FF00" stroke-width="0.100" />
+<text x="17.100" y="35.583"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+colorize</text>
+<text x="16.300" y="36.383"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+(if &quot;-c&quot; given)</text>
+<rect x="10.032" y="27.402" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="10.032" y="27.402" width="16.400" height="3.150" fill="none" stroke="#00FF00" stroke-width="0.100" />
+<text x="14.790" y="29.120"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+perform layout analysis</text>
+<rect x="10.032" y="47.236" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="10.032" y="47.236" width="16.400" height="3.150" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="12.060" y="48.953"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+convert png to ppm and then back to djvu</text>
+<rect x="18.324" y="73.013" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="18.324" y="73.013" width="16.400" height="3.150" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="23.100" y="74.331"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+remove temporary files</text>
+<text x="24.013" y="75.131"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+(if &quot;-k&quot; not given)</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="22.597,81.130 31.324,81.130 30.450,83.530 21.724,83.530 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="22.597,81.130 31.324,81.130 30.450,83.530 21.724,83.530 "/>
+<text x="24.846" y="82.473"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+output.djvu</text>
+<rect x="29.461" y="47.236" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="29.461" y="47.236" width="16.400" height="3.150" fill="none" stroke="#0000FF" stroke-width="0.100" />
+<text x="36.210" y="48.553"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+filter lines</text>
+<text x="35.704" y="49.353"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+(if &quot;-n&quot; given)</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="14.415,14.126 23.033,14.126 22.050,16.826 13.433,16.826 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="14.415,14.126 23.033,14.126 22.050,16.826 13.433,16.826 "/>
+<text x="16.835" y="15.619"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+input.png</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="14.306,41.059 23.033,41.059 22.159,43.459 13.433,43.459 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="14.306,41.059 23.033,41.059 22.159,43.459 13.433,43.459 "/>
+<text x="16.624" y="42.401"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+output.png</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="14.306,54.145 23.033,54.145 22.159,56.545 13.433,56.545 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="14.306,54.145 23.033,54.145 22.159,56.545 13.433,56.545 "/>
+<text x="16.555" y="55.487"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+output.djvu</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="33.735,59.689 42.461,59.689 41.588,62.089 32.861,62.089 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="33.735,59.689 42.461,59.689 41.588,62.089 32.861,62.089 "/>
+<text x="35.466" y="61.031"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+output.djvused</text>
+<polygon fill="#FFFFFF" stroke="none" stroke-width="0.100" points="33.735,41.059 42.461,41.059 41.588,43.459 32.861,43.459 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="33.735,41.059 42.461,41.059 41.588,43.459 32.861,43.459 "/>
+<text x="36.080" y="42.401"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+output.box</text>
+<line x1="18.233" y1="3.600" x2="18.233" y2="6.728" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,7.103 17.983,6.603 18.233,6.728 18.483,6.603 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,7.103 17.983,6.603 18.233,6.728 18.483,6.603 "/>
+<line x1="18.233" y1="10.463" x2="18.233" y2="13.615" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,13.990 17.983,13.490 18.233,13.615 18.483,13.490 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,13.990 17.983,13.490 18.233,13.615 18.483,13.490 "/>
+<line x1="18.233" y1="16.850" x2="18.233" y2="20.003" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,20.378 17.983,19.878 18.233,20.003 18.483,19.878 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,20.378 17.983,19.878 18.233,20.003 18.483,19.878 "/>
+<line x1="18.233" y1="23.738" x2="18.233" y2="26.867" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,27.242 17.983,26.742 18.233,26.867 18.483,26.742 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,27.242 17.983,26.742 18.233,26.867 18.483,26.742 "/>
+<line x1="18.233" y1="30.601" x2="18.233" y2="33.730" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,34.105 17.983,33.605 18.233,33.730 18.483,33.605 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,34.105 17.983,33.605 18.233,33.730 18.483,33.605 "/>
+<polyline fill="none" stroke="#000000" stroke-width="0.100"  points="26.433,28.977 26.433,29.100 38.098,29.100 38.098,40.572 "/>
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="38.098,40.947 37.848,40.447 38.098,40.572 38.348,40.447 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="38.098,40.947 37.848,40.447 38.098,40.572 38.348,40.447 "/>
+<line x1="18.233" y1="37.464" x2="18.233" y2="40.523" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,40.898 17.983,40.398 18.233,40.523 18.483,40.398 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,40.898 17.983,40.398 18.233,40.523 18.483,40.398 "/>
+<line x1="18.233" y1="43.508" x2="18.233" y2="46.705" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,47.080 17.983,46.580 18.233,46.705 18.483,46.580 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,47.080 17.983,46.580 18.233,46.705 18.483,46.580 "/>
+<line x1="18.233" y1="50.435" x2="18.233" y2="53.620" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="18.233,53.995 17.983,53.495 18.233,53.620 18.483,53.495 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="18.233,53.995 17.983,53.495 18.233,53.620 18.483,53.495 "/>
+<line x1="37.661" y1="43.508" x2="37.661" y2="46.705" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="37.661,47.080 37.411,46.580 37.661,46.705 37.911,46.580 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="37.661,47.080 37.411,46.580 37.661,46.705 37.911,46.580 "/>
+<rect x="29.461" y="54.030" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="29.461" y="54.030" width="16.400" height="3.150" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="34.721" y="55.348"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+make djvused script</text>
+<text x="35.704" y="56.148"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+(if &quot;-n&quot; given)</text>
+<rect x="18.324" y="65.930" width="16.400" height="3.150" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="18.324" y="65.930" width="16.400" height="3.150" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="24.254" y="67.248"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+set annotations</text>
+<text x="24.566" y="68.047"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+(if &quot;-n&quot; given)</text>
+<line x1="37.661" y1="50.433" x2="37.661" y2="53.496" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="37.661,53.871 37.411,53.371 37.661,53.496 37.911,53.371 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="37.661,53.871 37.411,53.371 37.661,53.496 37.911,53.371 "/>
+<polyline fill="none" stroke="#000000" stroke-width="0.100"  points="17.900,56.700 17.900,61.315 22.424,61.315 22.424,65.443 "/>
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="22.424,65.818 22.174,65.318 22.424,65.443 22.674,65.318 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="22.424,65.818 22.174,65.318 22.424,65.443 22.674,65.318 "/>
+<polyline fill="none" stroke="#000000" stroke-width="0.100"  points="37.224,62.089 37.224,64.009 30.624,64.009 30.624,65.443 "/>
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="30.624,65.818 30.374,65.318 30.624,65.443 30.874,65.318 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="30.624,65.818 30.374,65.318 30.624,65.443 30.874,65.318 "/>
+<line x1="26.524" y1="69.127" x2="26.524" y2="72.480" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="26.524,72.855 26.274,72.355 26.524,72.480 26.774,72.355 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="26.524,72.855 26.274,72.355 26.524,72.480 26.774,72.355 "/>
+<line x1="26.524" y1="76.210" x2="26.524" y2="80.593" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="26.524,80.968 26.274,80.468 26.524,80.593 26.774,80.468 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="26.524,80.968 26.274,80.468 26.524,80.593 26.774,80.468 "/>
+<line x1="37.661" y1="57.228" x2="37.661" y2="59.151" stroke="#000000" stroke-width="0.100" />
+<polygon fill="#000000" stroke="none" stroke-width="0.100" points="37.661,59.526 37.411,59.026 37.661,59.151 37.911,59.026 "/>
+<polygon fill="none" stroke="#000000" stroke-width="0.100"  points="37.661,59.526 37.411,59.026 37.661,59.151 37.911,59.026 "/>
+<rect x="36.597" y="1.000" width="16.100" height="2.850" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="36.597" y="1.000" width="16.100" height="2.850" fill="none" stroke="#FF0000" stroke-width="0.100" />
+<text x="43.946" y="2.568"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+bash</text>
+<rect x="36.597" y="5.830" width="16.100" height="2.850" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="36.597" y="5.830" width="16.100" height="2.850" fill="none" stroke="#00FF00" stroke-width="0.100" />
+<text x="43.322" y="7.398"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+OCRopus</text>
+<rect x="36.597" y="11.010" width="16.100" height="2.850" fill="#FFFFFF" stroke="none" stroke-width="0"/>
+<rect x="36.597" y="11.010" width="16.100" height="2.850" fill="none" stroke="#0000FF" stroke-width="0.100" />
+<text x="43.969" y="12.578"  fill="#000000" text-anchor="start" font-size="0.80" font-family="sans" font-style="normal" font-weight="400">
+filter</text>
+</svg>
