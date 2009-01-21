@@ -5,11 +5,12 @@
 # released under GNU GPL with ABSOLUTELY NO WARRANTY
 #
 
+SCRIPTSDIR="/usr/share/mappage"
 CONVERT=convert
 CPALDJVU=cpaldjvu
-SEGMENTPAGE="ocroscript /usr/share/mappage/segment-page.lua"
+SEGMENTPAGE="ocroscript $SCRIPTSDIR/segment-page.lua"
 SORT=sort
-FILTER="python /usr/share/mappage/filter-line.py"
+FILTER="python $SCRIPTSDIR/filter-line.py"
 DJVUSED=djvused
 
 print_usage_and_exit() {
@@ -72,22 +73,16 @@ else
 	$SEGMENTPAGE "$INPUT.png" "$OUTPUT.png" "$OUTPUT.box"
 fi
 
-# preserve existing annotations
-# TODO $DJVUSED -e "select 1; print-ant" "$INPUT" >> "$INPUT.djvused"
-
 # convert "cleaned" (and colorized if set) png back to djvu
 $CONVERT "$OUTPUT.png" "$OUTPUT.ppm"
 $CPALDJVU "$OUTPUT.ppm" "$OUTPUT"
 
 if [ "$NUMERATE" ]; then
-	# sort lines
-	$SORT -o "$OUTPUT.djvused" -r -n -k 2,2 -k 1,1 "$OUTPUT.box" 
-
 	# filter lines and put numbers
-	$FILTER "$OUTPUT.djvused" "$FILTEROPTS"
+	$FILTER "$OUTPUT.box" "$FILTEROPTS"
 
 	# convert filtered box to djvused script
-	sed -i -e "s/^\([0-9]*\) \(.*\)$/(maparea \"#+0\" \"line \1\" (rect \2) (border #0000FF))/" "$OUTPUT.djvused"
+	sed -e "s/^\([0-9]*\) \(.*\)$/(maparea \"#+0\" \"line \1\" (rect \2) (border #0000FF))/" "$OUTPUT.box" > "$OUTPUT.djvused"
 
 	# set annotations
 	$DJVUSED -s -e "select 1; set-ant $OUTPUT.djvused" "$OUTPUT"
